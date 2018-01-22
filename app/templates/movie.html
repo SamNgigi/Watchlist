@@ -8,8 +8,12 @@
     {% else  %}
     <title>blah blah</title>
     {% endif  %}
+    {% extends 'base.html' %}
+    {% import 'macros.html' as macro %}
   </head>
   <body>
+    {% block content  %}
     <h1>Hello Movie {{id}}</h1>
+    {% endblock %}
   </body>
 </html>

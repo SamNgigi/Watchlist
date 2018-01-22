@@ -7,9 +7,12 @@
     {% else %}
     <title>Welcome to the best Movie Review Website</title>
     {% endif %}
+    {% extends 'base.html' %}
     {% import 'macros.html' as macro%}
   </head>
   <body>
+    <!-- Content block  -->
+    {% block content %}
     <!-- Popular movie -->
         <h3> Popular Movies</h3>
         <ul>
@@ -25,5 +28,6 @@
         <ul>
             {{macro.displayMovieList(now_showing)}}
         </ul>
+      {% endblock %}
   </body>
 </html>
