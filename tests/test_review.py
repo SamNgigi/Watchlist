@@ -7,7 +7,7 @@ class TestReview(unittest.TestCase):
     def setUp(self):
         self.new_review = Review(movie_id=4598,
                                  review_title="Python master",
-                                 imageurl="https://image.tmdb.org/t/p/w500/payattentiontomastery",
+                                 imageurl="https://image.tmdb.org/t/p/w500/mastery",
                                  review="I got this bruv! I got this")
 
     def tearDown(self):
