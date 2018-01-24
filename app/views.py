@@ -44,8 +44,12 @@ def movie(id):
     """
     movie = get_movie(id)
     title = f'{movie.title}'
+    reviews = Review.get_reviews(movie.id)
     # movie_id = "7890" This would set an unchangeble movie_id
-    return render_template('movie.html', title=title, movie=movie)
+    return render_template('movie.html',
+                           title=title,
+                           movie=movie,
+                           reviews=reviews)
 
 
 @app.route('/search/<movie_name>')
