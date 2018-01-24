@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 import unittest
-from movies import movie
-Movie = movie.Movie
+from app.models import Movie
+# Movie = movie.Movie
 
 
 class TestMovie(unittest.TestCase):
@@ -20,7 +20,3 @@ class TestMovie(unittest.TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_movie, Movie))
-
-
-if __name__ == '__main__':
-    unittest.main()

@@ -1,13 +1,14 @@
 from flask import render_template, request, redirect, url_for
-from app import app
-from .request import get_movies, get_movie, search_movie
-from .movies import review
+from . import main
+from ..request import get_movies, get_movie, search_movie
 from .forms import ReviewForm
-Review = review.Review
+from ..models import Review
+
+# Review = review.Review
 # Views
 
 
-@app.route('/')
+@main.route('/')
 def index():
     """
     View root page function that returns the index page and its data
@@ -32,7 +33,7 @@ def index():
                                now_showing=now_showing_movies)
 
 
-@app.route('/movie/<int:id>')
+@main.route('/movie/<int:id>')
 def movie(id):
     """
     This is the movie route and function that is meant to return
@@ -52,7 +53,7 @@ def movie(id):
                            reviews=reviews)
 
 
-@app.route('/search/<movie_name>')
+@main.route('/search/<movie_name>')
 def search(movie_name):
     """
     View function to display the search results
@@ -64,7 +65,7 @@ def search(movie_name):
     return render_template('search.html', movies=searched_movies, title=title)
 
 
-@app.route('/movie/review/new/<int:id>', methods=['GET', 'POST'])
+@main.route('/movie/review/new/<int:id>', methods=['GET', 'POST'])
 def new_review(id):
 
     form = ReviewForm()
