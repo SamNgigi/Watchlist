@@ -1,12 +1,9 @@
-# this module below helps create a connection and send requests to our API URL
 import urllib.request
-# The json module will format the JSON response to a Python dictionary
 import json
 from .models import Movie
 
-# Movie = models.Movie
 
-# Getting the api key
+# Getting api key
 api_key = None
 
 # Getting the movie base url
@@ -20,12 +17,12 @@ def configure_request(app):
 
 
 def get_movies(category):
-    """
-    Function that gets the json respose to our url request.
-    """
+    '''
+    Function that gets the json response to our url request
+    '''
     get_movies_url = base_url.format(category, api_key)
 
-    with urllib.request.urlopen(get_movies_url)as url:
+    with urllib.request.urlopen(get_movies_url) as url:
         get_movies_data = url.read()
         get_movies_response = json.loads(get_movies_data)
 
@@ -39,16 +36,15 @@ def get_movies(category):
 
 
 def process_results(movie_list):
-    """
-    Function that proccesses the movie result and transforms
-    them into a list of Objects
+    '''
+    Function  that processes the movie result and transform them to a list of Objects
 
     Args:
         movie_list: A list of dictionaries that contain movie details
 
     Returns :
         movie_results: A list of movie objects
-    """
+    '''
     movie_results = []
     for movie_item in movie_list:
         id = movie_item.get('id')

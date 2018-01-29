@@ -1,4 +1,3 @@
-#!/usr/bin/env python3.6
 from app import create_app
 from flask_script import Manager, Server
 
@@ -11,12 +10,10 @@ manager.add_command('server', Server)
 
 @manager.command
 def test():
-    """
-    Run the unit tests.
-    """
+    """Run the unit tests."""
     import unittest
-    test = unittest.TestLoader().discover('test')
-    unittest.TextTestRunner(verbosity=2).run(test)
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
 
 
 if __name__ == '__main__':
